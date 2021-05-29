@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="beckistyle.css">
+</head>
+<body>
+
+    <section id="instructions">
+        <h1>Play the keyboard </h1>
+        <p> Use the Keyboard Keys </p>
+        <p> C to play C, V to play D, B to play E, N to play F, M to play G</p>
+    </section>
+
+<section id="keyboard">
+  <div class="keys">
+    <div data-key="67" class="key white">
+      <kbd>C</kbd>
+      <span class="sound">C</span>
+    </div>
+    <div data-key="86" class="key white">
+      <kbd>D</kbd>
+      <span class="sound">V</span>
+    </div>
+    <div data-key="66" class="key white">
+      <kbd>E</kbd>
+      <span class="sound">B</span>
+    </div>
+    <div data-key="78" class="key white">
+      <kbd>F</kbd>
+      <span class="sound">N</span>
+    </div>
+    <div data-key="77" class="key white">
+      <kbd>G</kbd>
+      <span class="sound">M</span>
+    </div>
+
+    <div data-key="70" class="key black" id="blackC">
+        <kbd>C#</kbd>
+        <span class="sound">F</span>
+      </div>
+
+      <div data-key="71" class="key black" id="blackD">
+        <kbd>D#</kbd>
+        <span class="sound">G</span>
+      </div>
+
+      <div data-key="74" class="key black" id="blackF">
+        <kbd>F#</kbd>
+        <span class="sound">J</span>
+      </div>
+    
+  
+    </section>
+
+
+  <audio data-key="67" src="pianosounds\C.wav"></audio>
+  <audio data-key="86" src="pianosounds\D.wav"></audio>
+  <audio data-key="66" src="pianosounds\E.m4a"></audio>
+  <audio data-key="78" src="pianosounds\F.wav"></audio>
+  <audio data-key="77" src="pianosounds\G.wav"></audio>
+  <!-- <audio data-key="70" src="pianosounds\csharp.wav"></audio>
+  <audio data-key="71" src="pianosounds\dsharp.wav"></audio>
+  <audio data-key="74" src="pianosounds\Fsharp.wav"></audio> -->
+
+  
+  <script src="main.js"></script>
+
+
+
+</body>
+</html>

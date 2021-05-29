@@ -1,0 +1,91 @@
+html {
+  font-size: 10px;
+  background: url("./purple-piano.jpg") bottom center;
+  background-size: cover;
+  color: white;
+}
+
+#instructions {
+    font-size: 2.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: -60px;
+}
+
+#keyboard{
+position: relative;
+min-width: 800px;
+margin-left: 250px;
+}
+
+.keys {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  flex: 1 0 auto;
+}
+
+.key {
+  border: black solid 2px;
+  border: 0.4rem solid black;
+  border-radius: 0.5rem;
+  /* margin: 1rem; */
+  font-size: 1.5rem;
+  transition: all 0.07s ease;
+  width: 10rem;
+  text-align: center;
+  color: black;
+  background: white;
+  padding-top: 20px;
+  min-width: 100px;
+}
+
+.white {
+  width: 150px;
+  min-width: 150px;
+  height: 500px;
+}
+.playing {
+  transform: scale(1.1);
+  border-color: rgb(150, 44, 211);
+  box-shadow: 0 0 1rem white;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+  line-height: 100px;
+}
+
+.sound {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: rgb(187, 187, 51);
+ display: none;
+  
+}
+
+.black {
+    background-color: black;
+    color: black;
+    width: 100px;
+    height: 300px;
+    z-index: 1;
+    position: relative;
+}
+
+#blackC {
+  right: 680px;
+}
+
+#blackD {
+
+  right: 640px;
+}
+
+#blackF{
+
+    right: 430px;
+  }
