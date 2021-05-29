@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+  
+
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+    <label for="blur">Blur:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="base">Base Color</label>
+    <input id="base" type="color" name="base" value="#FF0000">
+  </div>
+
+  <img id="photo" alt="becki and jon" src="https://scontent.fbhx3-1.fna.fbcdn.net/v/t31.18172-8/18209138_10158740059525151_690474371279115773_o.jpg?_nc_cat=101&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=PBU6qHy5L0UAX8kSTmn&_nc_ht=scontent.fbhx3-1.fna&oh=54b6685b64325ecca9c54752528d2b9a&oe=60D67A3C">
+  
+  <br>
+
+  <a href="https://eager-mestorf-74a78c.netlify.app/" class="back-button">Back to projects</a>
+
+
+  <style>
+
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+
+    :root {
+      --base: rgb(245, 12, 12);
+      --spacing: 10px;
+      --blur: 30px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));;
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    body {
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 30px;
+    }
+
+    #photo {
+      max-width: 300px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+
+    
+
+.back-button {
+        box-shadow:inset 0px 1px 0px 0px #e184f3;
+        background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
+        background-color:#c123de;
+        border-radius:6px;
+        border:1px solid #a511c0;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #9b14b3;
+    }
+    .myButton:hover {
+        background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
+        background-color:#a20dbd;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+    
+  </style>
+
+  <script>
+
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate() {
+     
+     const suffix = this.dataset.sizing || ' ';
+     console.log(suffix); 
+     document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+  </script>
+
+</body>
+</html>
