@@ -39,11 +39,13 @@
   // 1. Filter the list of inventors for those who were born in the 1500's
   <br> 
   <br>
-  const bornIn1500s = inventors.filter(inventor => inventor.year >= 1500 & inventor.year < 1599) 
+ <code class="highlight">const bornIn1500s = inventors.filter(inventor => inventor.year >= 1500 & inventor.year < 1599) 
    
-
+<br>
   console.log(bornIn1500s)
+  <br>
   console.table(bornIn1500s)
+</code>
   <br> 
   <br>
 
@@ -51,40 +53,40 @@
   // 2. Give us an array of the inventors first and last names
   <br> 
   <br>
-  const firstAndLastName = inventors.map(inventor => inventor.first + " " + inventor.last);
-  console.log(firstAndLastName)
+  <code class="highlight">const firstAndLastName = inventors.map(inventor => inventor.first + " " + inventor.last);
+    <br>console.log(firstAndLastName)</code>
   <br> 
   <br>
   // Array.prototype.sort()
   // 3. Sort the inventors by birthdate, oldest to youngest
   <br> 
   <br>
-  const inventorbirthdate = inventors.sort((first, second) => first.year > second.year ? 1 : -1)
-  console.table(inventorbirthdate)
+  <code class="highlight">const inventorbirthdate = inventors.sort((first, second) => first.year > second.year ? 1 : -1)
+    <br>console.table(inventorbirthdate)</code>
   <br> 
   <br>
   // Array.prototype.reduce()
   // 4. How many years did all the inventors live all together?
   <br> 
   <br>
-  const totalYear = inventors.reduce((total, inventor) => {
+  <code class="highlight">  const totalYear = inventors.reduce((total, inventor) => {
     return total + (inventor.passed - inventor.year)
   }, 0);
-
-  console.log(totalYear)
+  <br>
+  console.log(totalYear) </code>
   <br> 
   <br>
 
   // 5. Sort the inventors by years lived
   <br> 
   <br>
-  const oldestInventors = inventors.sort(function(first, second) {
-    const firstInventor = first.passed - first.year;
-    const secondInventor = second.passed - second.year;
-    return firstInventor > secondInventor ? -1 : 1;
-  });
+  <code class="highlight">  const oldestInventors = inventors.sort(function(first, second) {<br>
+    const firstInventor = first.passed - first.year;<br>
+    const secondInventor = second.passed - second.year;<br>
+    return firstInventor > secondInventor ? -1 : 1;<br>
+  });<br>
 
-  console.table (oldestInventors)
+  console.table (oldestInventors)</code>
   <br> 
   <br>
   // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
@@ -93,24 +95,24 @@
   // this returns node list so need to use Array.from to use methods
   <br> 
   <br>
- const category = document.querySelector('.mw-category');
-  const links = Array.from(category.querySelectorAll('a'));
-  const de = links
-              .map(link => link.textContent)
-              .filter(streetName => streetName.includes('de'));
-
+  <code class="highlight"> const category = document.querySelector('.mw-category');<br>
+  const links = Array.from(category.querySelectorAll('a'));<br>
+  const de = links<br>
+              .map(link => link.textContent)<br>
+              .filter(streetName => streetName.includes('de'));<br>
+</code>
               <br> 
               <br>
   // 7. sort Exercise
   // Sort the people alphabetically by last name
   <br> 
   <br>
-  const alphabetical = people.sort((lastOne, nextOne) => {
-    const [aLast, aFirst] = lastOne.split(', ');
-    const [bLast, bFirst] = nextOne.split(', ');
-    return aLast > bLast ? 1 : -1;
+  <code class="highlight">  const alphabetical = people.sort((lastOne, nextOne) => {<br>
+    const [aLast, aFirst] = lastOne.split(', ');<br>
+    const [bLast, bFirst] = nextOne.split(', ');<br>
+    return aLast > bLast ? 1 : -1;<br>
   });
-  console.log(alphabetical);
+  console.log(alphabetical); </code>
   <br> 
   <br>
   // 8. Reduce Exercise
@@ -118,18 +120,19 @@
   const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
   <br> 
   <br>
-const transport = data.reduce(function(obj, item) {
-    if (!obj[item]) {
-      obj[item] = 0;
-    }
-    obj[item]++;
-    return obj;
-  }, {});
+  <code class="highlight">const transport = data.reduce(function(obj, item) {<br>
+    if (!obj[item]) {<br>
+     obj[item] = 0;
+    }<br>
+    obj[item]++;<br>
+    return obj;<br>
+  }, {});<br>
 
-  console.log(transport); </p>
+  console.log(transport); </code>
 
   <br>
-
+  <br>
+  <br>
   <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="back-button">Back to projects</a>
 
   <style>
@@ -149,6 +152,10 @@ padding: 20px;
 color: white;
 background: darkgreen;
 border-radius: 50px;
+    }
+
+    .highlight {
+      background-color: rgb(203, 245, 141);
     }
 
 
