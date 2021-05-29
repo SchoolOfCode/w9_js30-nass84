@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Panels 💪</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <style>
+      html {
+        box-sizing: border-box;
+        background: #ffc600;
+        font-family: "helvetica neue";
+        font-size: 20px;
+        font-weight: 200;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .panels {
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .panel {
+        background: #6b0f9c;
+        box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+        color: white;
+        text-align: center;
+        align-items: center;
+        /* Safari transitionend event.propertyName === flex */
+        /* Chrome + FF transitionend event.propertyName === flex-grow */
+        transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+          flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+        font-size: 24px;
+        background-size: cover;
+        background-position: center;
+
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .panel1 {
+        background-image: url(https://scontent.fbhx3-1.fna.fbcdn.net/v/t1.6435-9/115737704_3154472851285287_3169891533087719459_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=730e14&_nc_ohc=nSMwLEijQpsAX-7UL4j&_nc_ht=scontent.fbhx3-1.fna&oh=52e564e2697a5f5e1d49ec6350fbd5b6&oe=60D63860);
+      }
+      .panel2 {
+        background-image: url(https://scontent.fbhx3-1.fna.fbcdn.net/v/t1.6435-9/66859321_10162389220725151_8201468140245221376_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_ohc=hASOF0ySGBsAX-8ZcYq&_nc_ht=scontent.fbhx3-1.fna&oh=4691945aa9e7f99bda13c662561402a8&oe=60D833CE);
+      }
+      .panel3 { 
+        background-image: url(https://scontent.fbhx3-1.fna.fbcdn.net/v/t1.6435-9/93562369_10163845062800151_1972053024440320000_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_ohc=Zv1M29ZpKEsAX-7MYh5&tn=2c70uMPdvp_Isjsv&_nc_ht=scontent.fbhx3-1.fna&oh=722019ea41940cda647c4a77617a753d&oe=60D70C5C);
+      }
+      .panel4 {
+        background-image: url(https://scontent.fbhx3-1.fna.fbcdn.net/v/t1.6435-9/70312046_10158025708139363_4135256291398385664_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_ohc=avROqfZ5dPYAX_lM25P&_nc_ht=scontent.fbhx3-1.fna&oh=87852483745798145d8cbb429364b6c7&oe=60D6A8E9);
+      }
+      .panel5 {
+        background-image: url(https://scontent.fbhx3-1.fna.fbcdn.net/v/t1.6435-9/79278907_10163121568365151_8916926038680797184_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_ohc=vcP0EVxFUcsAX_MmDIy&tn=2c70uMPdvp_Isjsv&_nc_ht=scontent.fbhx3-1.fna&oh=4c2d662d1ce360c04ad36302386a723f&oe=60D68BBD);
+      }
+
+      /* Flex Children */
+      .panel > * {
+        margin: 0;
+        width: 100%;
+        transition: transform 0.5s;
+        /* border: 1px red solid; */
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .panel > *:first-child { transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child { transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
+
+
+      .panel p {
+        text-transform: uppercase;
+        font-family: "Amatic SC", cursive;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+        font-size: 2em;
+      }
+
+      .panel p:nth-child(2) {
+        font-size: 4em;
+      }
+
+      .panel.open {
+        flex: 5;
+        font-size: 40px;
+      }
+
+      .myButton {
+ 
+ box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+ background:linear-gradient(to bottom, #f3e4b1 5%, #bd6d11 100%);
+ background-color:#78c2b8;
+ display:inline-block;
+ cursor:pointer;
+ color:#ffffff;
+ font-family:Verdana;
+ font-size:24px;
+ font-weight:bold;
+ font-style:italic;
+ padding:19px 24px;
+ text-decoration:none;
+ text-shadow:3px 3px 44px #283966;
+ display: flex;
+ justify-content: center;
+}
+    </style>
+
+    <div>
+      <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+    </div>
+
+    <div class="panels">
+      <div class="panel panel1">
+        <p>Hey</p>
+        <p>Let's</p>
+        <p>Dance</p>
+      </div>
+      <div class="panel panel2">
+        <p>Give</p>
+        <p>Take</p>
+        <p>Receive</p>
+      </div>
+      <div class="panel panel3">
+        <p>Party</p>
+        <p>All</p>
+        <p>You can</p>
+      </div>
+      <div class="panel panel4">
+        <p>Experience</p>
+        <p>It</p>
+        <p>Today</p>
+      </div>
+  
+      <div class="panel panel5">
+        <p>Life</p>
+        <p>In</p>
+        <p>Motion</p>
+      </div>
+
+      
+    </div>
+
+
+    <script>
+      const panels = document.querySelectorAll(".panel");
+
+      function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+      function toggleActive(event) {
+      console.log(event.propertyName);
+      if (event.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+ 
+</script>
+  </body>
+</html>
