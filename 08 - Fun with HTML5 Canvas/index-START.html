@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <div id="rainbow-section">
+      <a href="javascript:history.go(0)" class="rainbow-button rainbow-top"
+        >To draw click down on your mouse <br />
+        Click here to clear your drawing</a
+      >
+    </div>
+
+    <canvas id="draw" width="2000" height="500"></canvas>
+    <div id="rainbow-section">
+      <a
+        href="https://schoolofcode.github.io/w9_js30-nass84/"
+        class="rainbow-button"
+        >Back to projects</a
+      >
+    </div>
+    <script>
+      const canvas = document.querySelector("#draw");
+      const ctx = canvas.getContext("2d");
+      // canvas.width = window.innerWidth;
+      // canvas.height = window.innerHeight;
+      ctx.strokeStyle = "#BADA55";
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.lineWidth = 50;
+      // when you draw on it the colours will blend
+      // ctx.globalCompositeOperation = 'multiply';
+
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+      let hue = 0;
+      let direction = true;
+
+      function draw(e) {
+        if (!isDrawing) return; // stop the fn from running when they are not moused down
+        console.log(e);
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.beginPath();
+        // start from
+        ctx.moveTo(lastX, lastY);
+        // go to
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+        //changes the hue amount by 1 to change colour
+        hue++;
+        if (hue >= 360) {
+          // when hue gets to end, reset it
+          hue = 0;
+        }
+        // for every loop we will change the line width. If its greater than 100 flip direction to change size
+        if (ctx.lineWidth >= 50 || ctx.lineWidth <= 1) {
+          direction = !direction;
+        }
+        // if true go up in size
+        if (direction) {
+          ctx.lineWidth++;
+          // if false go down in size
+        } else {
+          ctx.lineWidth--;
+        }
+      }
+
+      canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseout", () => (isDrawing = false));
+    </script>
+
+    <style>
+      #rainbow-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+      }
+      .rainbow-button {
+        width: auto;
+        background-image: linear-gradient(
+          90deg,
+          #00c0ff 0%,
+          #ffcf00 49%,
+          #fc4f4f 80%,
+          #00c0ff 100%
+        );
+        border-radius: 10px;
+        padding: 10px;
+        padding-top: 30px;
+        font-family: cursive;
+        text-transform: uppercase;
+        font-size: 2vw;
+      }
+      .rainbow-button:after {
+        content: attr(alt);
+        /* width:20vw;
+  height:8vw; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .rainbow-button:hover {
+        animation: slidebg 2s linear infinite;
+      }
+
+      @keyframes slidebg {
+        to {
+          background-position: 20vw;
+        }
+      }
+
+      .rainbow-top {
+        width: auto;
+        font-size: 1.2rem;
+        padding-bottom: 10px;
+      }
+    </style>
+  </body>
+</html>
