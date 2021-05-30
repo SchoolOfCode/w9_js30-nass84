@@ -53,6 +53,7 @@ a:hover {
     padding: 20px;
     width: 100px;
     text-align: center;
+    min-height: 80px;
   }
 
   .box-link:hover {
