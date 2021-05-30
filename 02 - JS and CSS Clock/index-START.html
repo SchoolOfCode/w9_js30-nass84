@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="clockstyle.css" type="text/css" />
+  </head>
+  <body>
+    <div id="clock-container">
+      <img
+        src="https://img.pngio.com/clock-png-image-png-of-clock-without-hands-250_250.png"
+      />
+      <div class="hand" id="seconds"></div>
+      <div class="hand" id="minutes"></div>
+      <div class="hand" id="hours"></div>
+
+      
+    </div>
+
+    <div id="button-section">
+  
+      <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+
+    </div>
+    <script src="clock.js"></script>
+  </body>
+</html>
+
+
+
+  <style>
+ body {
+  margin: 0;
+  padding: 0;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  min-height: 100vh;
+}
+#clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+img {
+  height: 300px;
+  box-shadow: 0 0 40px 20px #0ff;
+  border-radius: 100%;
+  animation: glow-pulse 5s linear 0s infinite;
+}
+#seconds {
+  position: absolute;
+  height: 120px;
+  width: 3px;
+  border-top: 120px solid rgb(39, 6, 160);
+}
+
+#minutes {
+  position: absolute;
+  height: 120px;
+  width: 5px;
+  border-top: 120px solid rgb(33, 12, 109);
+}
+
+#hours {
+  position: absolute;
+  height: 80px;
+  width: 7px;
+  border-top: 120px solid rgb(17, 40, 90);
+  border-radius: 15px 50px; 
+}
+
+.hide {
+  display: none;
+}
+
+#message-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.animate {
+  animation: scale 3s infinite;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 40px 20px #0ff;
+  }
+
+  50% {
+    box-shadow: 0 0 10px 20px #0ff;
+  }
+
+  100% {
+    box-shadow: 0 0 40px 20px #0ff;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#button-section{
+  display: flex;
+  justify-content: center;
+  margin-top: -100px;
+}
+.myButton {
+ 
+	box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	background:linear-gradient(to bottom, #23d3f1 5%, #476e9e 100%);
+	background-color:#78c2b8;
+	border-radius:20px;
+	border:4px solid #13536d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	font-style:italic;
+	padding:19px 24px;
+	text-decoration:none;
+	text-shadow:3px 3px 44px #283966;
+
+ }
+      
+  </style>
+
+  <script>
+
+; // example of how to rotate the hand
+
+//Transfor clock hand every second around the clock
+// setInterval for every second 
+// 360 degrees / 60 seconds = 6 degrees per second
+// increase number of degrees that the hand is around the clock
+
+
+// setInterval(() => {
+//     degrees += 6;
+//     hand.style.transform = `rotate(${degrees}deg)`;
+// }, 1000)
+
+// let time = new Date();
+// console.log(time.getSeconds());
+
+let degrees = 0;
+
+const secondHand = document.getElementById("seconds");
+const minuteHand = document.getElementById("minutes");
+const hourHand = document.getElementById("hours");
+
+// // - Add second hand.
+
+setInterval(() => {
+    let time = new Date();
+    let degrees = time.getSeconds() * 6;
+    secondHand.style.transform = `rotate(${degrees}deg)`;
+}, 1000)
+
+// // - Add a minute hand.
+
+setInterval(() => {
+    let time = new Date();
+    let degrees = time.getMinutes() * 6;
+    minuteHand.style.transform = `rotate(${degrees}deg)`;
+}, 1000)
+
+// - Add an hour hand.
+
+setInterval(() => {
+    let time = new Date();
+    let degrees = time.getHours() * 30;
+    hourHand.style.transform = `rotate(${degrees}deg)`;
+}, 1000)
+
+
+
+  </script>
+</body>
+</html>
