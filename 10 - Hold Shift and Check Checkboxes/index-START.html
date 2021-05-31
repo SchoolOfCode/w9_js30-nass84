@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hold Shift to Check Multiple Checkboxes</title>
+</head>
+<body>
+  <style>
+
+    html {
+      font-family: sans-serif;
+      background: #3d9696;
+    }
+
+    .inbox {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #F1F1F1;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    input:checked + p {
+      background: #F9F9F9;
+      text-decoration: line-through;
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      transition: background 0.2s;
+      flex: 1;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #D1E2FF;
+    }
+    #button {
+      display: flex;
+      flex-flow: no;
+    }
+
+    #text {
+display: flex;
+justify-content: center;
+flex-flow: nowrap column;
+align-items: center;
+text-align: center;
+background-color: rgb(128, 228, 203);
+    }
+
+    .myButton {
+      box-shadow: 3px 4px 0px 3px #064b20;
+      background:linear-gradient(to bottom, #0a3b39 5%, #13917c 100%);
+      background-color:#21143d;
+      border-radius:5px;
+      border:1px solid #33c494;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:Arial;
+      font-size:17px;
+      font-weight:bold;
+      padding:12px 44px;
+      text-decoration:none;
+      
+      
+    
+    }
+    .myButton:hover {
+      background:linear-gradient(to bottom, #0b6d3f 5%, #12e09c 100%);
+      background-color:#378de5;
+    }
+    .myButton:active {
+      position:relative;
+      top:1px;
+    }
+
+    h1 {
+      text-decoration: underline  #064b20;
+    }
+  
+  </style>
+
+  <div id="text"> 
+    <div id=button>
+      <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+    </div>
+  <h1> Checkbox List with shift option</h1> </h3>
+   
+  <p>The following is a common layout you would see in an email client.
+
+   <br>
+   <br>When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  </p>
+
+</div>
+
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p> Apples </p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Bananas</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Cheese</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Dog biscuits</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Eggs</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Fish</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Gold Bars</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hot sauce</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Ice</p>
+    </div>
+  </div>
+
+
+<script>
+
+const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+let lastChecked;
+
+function handleCheck(e) {
+  let inBetween = false;
+  if (e.shiftKey && this.checked) {
+    checkboxes.forEach(checkbox => {
+      if (checkbox === this || checkbox === lastChecked) {
+        inBetween = !inBetween;
+      }
+
+      if (inBetween) {
+        checkbox.checked = true;
+      }
+    });
+  }
+
+  lastChecked = this;
+}
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
+
+
+</script>
+</body>
+</html>

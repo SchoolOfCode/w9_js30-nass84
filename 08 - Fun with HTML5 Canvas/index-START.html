@@ -10,9 +10,10 @@
         >To draw click down on your mouse <br />
         Click here to clear your drawing</a
       >
-    </div>
 
-    <canvas id="draw" width="2000" height="500"></canvas>
+    
+
+    <canvas id="draw" width="2000" height="550"></canvas>
     <div id="rainbow-section">
       <a
         href="https://schoolofcode.github.io/w9_js30-nass84/"
@@ -23,8 +24,8 @@
     <script>
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
-      // canvas.width = window.innerWidth;
-      // canvas.height = window.innerHeight;
+      // canvas.width = window.innerWidth(-100px);
+      // canvas.height = window.innerHeight(-100px);
       ctx.strokeStyle = "#BADA55";
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
@@ -89,6 +90,8 @@
         color: #fff;
         text-align: center;
       }
+
+
       .rainbow-button {
         width: auto;
         background-image: linear-gradient(
@@ -128,6 +131,14 @@
         font-size: 1.2rem;
         padding-bottom: 10px;
       }
+
+      @media only screen and (max-width: 600px) {
+        rainbow-top {
+          display: none;
+        }
+  }
+
+    
     </style>
   </body>
 </html>

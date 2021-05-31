@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+    <h1> Dev tricks </h1>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+
+
+    <h2> Click me </h2> 
+
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <img id="breakon" src="1  - breakon.png" alt="accessing breakpoint">
+
+    <p>To find break point, inspect, break on, attriute modifications, when you click it, the debugger stops it on the break point and you see line of code. </p> 
+
+    <h3>Regular </h3> 
+
+    <code>console.log(`shows the words in the console`) </code> 
+
+    <h3>Interpolated </h3>  
+
+
+    <code> console.log('Hello I am a %s string! Can just use backticks instead', 'interpolated'); </code> 
+
+    <h3> Styled </h3>
+
+    <code>console.log('%c I am bigger text', 'font-size: 25px; background:pink') </code> 
+
+    <h3> warning! </h3>
+
+    <code> console.warn('Displays yellow warning') </code> 
+
+
+    <h3>Error  </h3>
+    <code>  console.error('Displays red warning') </code> 
+
+    <h3> Info </h3>
+    <code>  console.info('Have some information!') </code> 
+
+    <h3> Testing - Only says words if its false </h3>
+
+    <code> console.assert(1 === 2, 'That is False') </code> 
+
+    <h3>clearing - clears console</h3>
+
+    <code> // console.clear() </code> 
+
+    <h3> Viewing DOM Elements </h3>
+    <p> can open up and look at class lists </p>
+    <code> console.dir('p') </code> 
+
+    <h3> Grouping together  </h3>
+
+    <code>   dogs.forEach(dog => {<br>
+      console.group(`${dog.name}`); <br>
+      console.groupCollapsed(`${dog.name}`);<br>
+      console.log(`This is ${dog.name}`);<br>
+      console.log(`${dog.name} is ${dog.age} years old`);<br>
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);<br>
+      console.groupEnd(`${dog.name}`);<br>
+    }); </code> 
+
+    <h3> counting </h3>
+
+    <code>   console.count('Wes'); <br>
+    console.count('Wes'); <br>
+    console.count('Steve'); <br>
+    console.count('Steve'); <br>
+    console.count('Wes'); <br>
+    console.count('Steve'); <br>
+    console.count('Wes');<br> 
+    console.count('Steve');<br>
+    console.count('Steve'); <br>
+    console.count('Steve');<br>
+    console.count('Steve');<br>
+    console.count('Steve');</code> 
+
+    <h3>>timing </h3>
+
+    <code>  console.time('fetching data'); <br>
+    fetch('https://api.github.com/users/wesbos') <br>
+      .then(data => data.json())<br>
+      .then(data => {<br>
+        console.timeEnd('fetching data');<br>
+        console.log(data);<br>
+      });<br>
+
+    <h3> display info in table </h3>
+      <code> console.table(dogs); </code> 
+
+      <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+
+</body>
+</html>
+
+    <style>
+      html {
+              font-family: "helvetica neue";
+     
+      }
+      h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        text-decoration: underline #ecc536f1;
+      }
+      .myButton {
+  
+  
+  background:linear-gradient(to bottom,#fada96 5%, #ffc600 100%);
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Verdana;
+  font-size:24px;
+  font-weight:bold;
+  font-style:italic;
+  padding:19px 24px;
+  text-decoration:none;
+  text-shadow:3px 3px 44px #ecc536f1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+  }
+  code {
+    background-color:  #ffc600;
+    opacity: 80%;
+    font-size: 1rem;
+  }
+
+  #breakon{
+    max-width: 800px;
+    align-items: center;
+    width: 70%;
+  }
+    </style>
+
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // To find break point, inspect, break on, attriute modifications, when you click it, the debugger stops it on the break point and you see line of code. 
+
+    // Regular
+
+    console.log(`shows the words in the console`)
+    
+    //  Interpolated
+  
+
+     console.log('Hello I am a %s string! Can just use backticks instead', 'interpolated');
+
+    // Styled
+
+    console.log('%c I am bigger text', 'font-size: 25px; background:pink')
+    
+    // warning!
+
+    console.warn('Displays yellow warning')
+
+
+    // Error :|
+    console.error('Displays red warning')
+    
+    // Info
+    console.info('Have some information!')
+
+    // Testing - Only says words if its false
+
+  console.assert(1 === 2, 'That is False')
+
+    // clearing - clears console
+
+    // console.clear() 
+
+    // Viewing DOM Elements
+    // can open up and look at class lists
+    console.dir('p')
+
+    // Grouping together
+
+    dogs.forEach(dog => {
+      // console.group(`${dog.name}`); - Opens all the information
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+    // counting
+
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    // timing
+
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+      // display info in table
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
