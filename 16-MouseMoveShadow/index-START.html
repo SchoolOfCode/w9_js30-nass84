@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Shadow</title>
+</head>
+<body>
+  
+  <div id=button> 
+    <button class="button" id="techno-button"> TECHNO! </button>
+    <a href="https://schoolofcode.github.io/w9_js30-nass84/">
+    <button class="button" id="project-button"> Return to Projects </button>
+  </a>
+  </div>
+
+  <div class="hero flash hide">
+    <h1>* x * * x * x *
+      <br>  Techno! Techno! Techno!  <br>
+      * x * * x * x *
+      
+      
+    </h1>
+  </div>
+ 
+  </body>
+  </html>
+
+  <style>
+  html {
+  
+    font-family: sans-serif;
+    color: yellow;
+  }
+
+  
+
+  body {
+    margin: 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .hide {
+    display: none;
+  }
+
+  h1 {
+    text-shadow: 10px 10px 0 purple;
+    font-size: 100px;
+    text-align: center;
+  }
+
+  .flash{
+    animation: blinker 0.5s linear infinite;
+}
+
+@keyframes blinker {
+  80% {
+    opacity: 0;
+  }
+}
+
+body {
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height:100vh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a#link {
+  margin-top: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a#link:hover {
+  color: #B01EFF;
+}
+
+.button {
+  cursor: pointer;
+  width: 250px;
+  height: 85px;
+  background: white;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+  animation: gradient 2.5s infinite 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards;
+  margin-top: 100px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+  font-size: 25px;
+  color: white;
+}
+
+@keyframes gradient {
+  0% { background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%) }
+  10% { background: linear-gradient(90deg, #d53369 0%, #daae51 100%) }
+  20% { background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%) }
+  30% { background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%) }
+  40% { background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%) }
+  50% { background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%) }
+  60% { background: linear-gradient(90deg, #0700b8 0%, #00ff88 100%) }
+  70% { background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%) }
+  80% { background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%) }
+  90% { background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%) }
+  100% { background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%) }
+}
+
+  </style>
+
+<script>
+  const hero = document.querySelector('.hero');
+  const text = hero.querySelector('h1');
+  const walk = 500; // 500px
+
+  function shadow(e) {
+    const { offsetWidth: width, offsetHeight: height } = hero;
+    let { offsetX: x, offsetY: y } = e;
+
+    if (this !== e.target) {
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
+
+    const xWalk = Math.round((x / width * walk) - (walk / 2));
+    const yWalk = Math.round((y / height * walk) - (walk / 2));
+
+    text.style.textShadow = `
+      ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7),
+      ${xWalk * -1}px ${yWalk}px 0 rgba(0,255,255,0.7),
+      ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,0,0.7),
+      ${yWalk * -1}px ${xWalk}px 0 rgba(0,0,255,0.7)
+    `;
+
+  }
+
+  const techButton = document.getElementById("techno-button")
+ 
+
+  function playSound() {
+  const audio = new Audio("techno.mp3");
+  audio.play();
+  hero.classList.remove("hide");
+   
+}
+
+  hero.addEventListener('mousemove', shadow);
+  techButton.addEventListener('click', playSound);
+
+</script>
+</body>
+</html>
