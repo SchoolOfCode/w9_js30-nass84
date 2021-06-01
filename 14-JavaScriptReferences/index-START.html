@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+  
+</head>
+<body>
+
+  <h1>Copying and changing Arrays and Objects</h1> 
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+
+  <p> start with strings, numbers and booleans<BR>
+    <code>let age = 100;
+    <br> let age2 = age;
+    <br> console.log(age, age2);
+    <p> age = 100 age2 = 100</p>
+    <br> age = 200;
+    <br> console.log(age, age2);
+    <br>
+    <p> age = 100 age2 = 200</p>
+    <br>
+    <br> let name = 'Wes';
+    <br> let name2 = name;
+    <br> console.log(name, name2);
+    <p>Wes Wes</p>
+    <br>
+    <br> name = 'wesley';
+    <br> console.log(name, name2); 
+  <p>wesley Wes</p></code>
+
+    <p>Let's say we have an array</p> 
+   <code> const players = ['Wes', 'Sarah', 'Ryan', 'Poppy']; </code>
+
+    <p>and we want to make a copy of it.</p>
+   <code> const team = players;
+<br>
+    console.log(players, team);</code> 
+    <p>(4) ["Wes", "Sarah", "Ryan", "Poppy"] </p>
+    <p>You might think we can just do something like this:</p>
+    <code> team[3] = 'Lux'; </code>
+
+    <p> however what happens when we update that array?
+
+    <br> now here is the problem!
+
+    <br> oh no - we have edited the original array too!
+
+    <br> Why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+    <br> So, how do we fix this? We take a copy instead! </p>
+   <code> const team2 = players.slice();</code>
+
+    <p> one way
+
+    <br> or create a new array and concat the old one in </p>
+    <code>const team3 = [].concat(players); </code>
+
+    <p> or use the new ES6 Spread </p>
+   <code>const team4 = [...players];
+   <br> team4[3] = 'heeee hawww';
+   <br> console.log(team4);
+   <p> (4) ["Wes", "Sarah", "Ryan", "heeee hawww"]</p>
+<br>
+   <br> const team5 = Array.from(players);</code> 
+
+   <p>now when we update it, the original one isn't changed
+
+    <br> The same thing goes for objects, let's say we have a person object
+
+    <br> with Objects </p> 
+   <code> const person = { <br>
+      name: 'Wes Bos',<br>
+      age: 80<br>
+    };<br>
+    <br> </code>
+    <p>and think we make a copy:</p>
+    <code> const captain = person;
+    <br> captain.number = 99;</code>
+
+    <p>how do we take a copy instead?</p>
+<code>   const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+   <br> console.log(cap2);</code> 
+
+   <p> We will hopefully soon see the object ...spread </p>
+    <code> const cap3 = {...person};</code>
+
+    <p> Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.</p>
+
+<code>  const wes = {<br>
+      name: 'Wes',<br>
+      age: 100,<br>
+      social: {<br>
+        twitter: '@wesbos',<br>
+        facebook: 'wesbos.developer'<br>
+      }<br>
+    };<br>
+    <br>
+    console.clear();<br>
+    console.log(wes);<br>
+    <p></p>
+    <br>
+    const dev = Object.assign({}, wes);<br>
+    <br>
+    const dev2 = JSON.parse(JSON.stringify(wes));</code>  
+    </p>
+    <div id="button-section">
+      
+      <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+
+    </div>
+    </body>
+    </html>
+    
+<style>
+  html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+  }
+  h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  text-decoration: underline #ecc536f1;
+  }
+  .myButton {
+  
+  
+  background:linear-gradient(to bottom,#fada96 5%, #ffc600 100%);
+  display:inline-block;
+  cursor:pointer;
+  color: black;
+  font-family:Verdana;
+  font-size:24px;
+  font-weight:bold;
+  font-style:italic;
+  padding:19px 24px;
+  text-decoration:none;
+  text-shadow:3px 3px 44px #ecc536f1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  
+  p {
+  font-size: 1.1rem;
+  }
+  code {
+  background-color:  #ffc600;
+  opacity: 80%;
+  font-size: 1rem;
+  }
+  </style>
+  <script>
+  // start with strings, numbers and booleans
+    let age = 100;
+    let age2 = age;
+    console.log(age, age2);
+    age = 200;
+    console.log(age, age2);
+
+    let name = 'Wes';
+    let name2 = name;
+    console.log(name, name2);
+    name = 'wesley';
+    console.log(name, name2);
+
+    // Let's say we have an array
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    // and we want to make a copy of it.
+    const team = players;
+
+    console.log(players, team);
+    // You might think we can just do something like this:
+    // team[3] = 'Lux';
+
+    // however what happens when we update that array?
+
+    // now here is the problem!
+
+    // oh no - we have edited the original array too!
+
+    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+    // So, how do we fix this? We take a copy instead!
+    const team2 = players.slice();
+
+    // one way
+
+    // or create a new array and concat the old one in
+    const team3 = [].concat(players);
+
+    // or use the new ES6 Spread
+    const team4 = [...players];
+    team4[3] = 'heeee hawww';
+    console.log(team4);
+
+    const team5 = Array.from(players);
+
+    // now when we update it, the original one isn't changed
+
+    // The same thing goes for objects, let's say we have a person object
+
+    // with Objects
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    // and think we make a copy:
+    // const captain = person;
+    // captain.number = 99;
+
+    // how do we take a copy instead?
+    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+    console.log(cap2);
+
+    // We will hopefully soon see the object ...spread
+    // const cap3 = {...person};
+
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
+    const wes = {
+      name: 'Wes',
+      age: 100,
+      social: {
+        twitter: '@wesbos',
+        facebook: 'wesbos.developer'
+      }
+    };
+
+   
+    console.log(wes);
+
+    const dev = Object.assign({}, wes);
+
+    const dev2 = JSON.parse(JSON.stringify(wes));
+
+  </script>
+
+</body>
+</html>
