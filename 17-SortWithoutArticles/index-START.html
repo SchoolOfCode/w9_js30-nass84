@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sort Without Articles</title>
+  </head>
+    <body>
+
+        <h1> Sort band names without Articles</h1>
+      
+        <p> the task is to sort a given array of band names (i.e., strings) but ignore potential leading articles such as “a”, “an” and “the”, and then insert the band names as individual items into an empty unordered list. </p>
+        <code>
+          const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+        
+          <ul id="bands"></ul>
+
+        </code>
+
+      <img src="sortcode.png" alt="code used"> 
+
+      <a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+
+
+    </body>
+  </html>
+
+  </p>
+  <style>
+    body {
+      margin: 100;
+      font-family: sans-serif;
+      /* background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000"); */
+      background-size: cover;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    img {
+     width: 80%;
+     margin: 20px;
+    }
+
+    #bands {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    #bands li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+    
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+
+    
+  html {
+              font-family: "helvetica neue";
+     
+      }
+      h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        text-decoration: underline #ecc536f1;
+      }
+      .myButton {
+  
+  
+  background:linear-gradient(to bottom,#fada96 5%, #ffc600 100%);
+  display:inline-block;
+  cursor:pointer;
+  color:black;
+  font-family:Verdana;
+  font-size:24px;
+  font-weight:bold;
+  font-style:italic;
+  padding:19px 24px;
+  text-decoration:none;
+  text-shadow:3px 3px 44px #ecc536f1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+  }
+  code {
+    background-color:  #ffc600;
+    opacity: 80%;
+    font-size: 1rem;
+  }
+
+
+</style>
+
+
+
+  
+
+<script>
+
+  
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 
+'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+//Create Function to remove Articles
+function strip(bandName) {
+  // replace articles wih//Create Function to remove Articles
+function strip(bandName) {
+  // replace articles with nothing and trim white space
+  return bandName.replace(/^(a |the |an )/i, '').trim();
+}
+
+// Sorts the bands using the strip function 
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+      // same as:
+            //   const sortedbands = bands.sort(function (a,b) { <br>
+            // if (strip(a) > strip(b)) { 
+            //     return 1; <br>
+            //   } else return -1; 
+            //   } 
+            // }) 
+
+
+// Change the innerHTML to sorted Bands
+document.querySelector('#bands').innerHTML =
+  sortedBands
+    .map(band => `<li>${band}</li>`)
+    .join('');
+
+console.log(sortedBands);
+
+
+
+</script>
+
+</body>
+</html>
