@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos</title>
+</head>
+<body>
+
+  <h1> Adding up time with reduce </h1>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+
+
+    <h2> What is the total time for the video times? </h2> 
+
+    <div id=picture-section>
+      <div id="time">
+        <img src="times.png" alt="video-times">
+      </div>
+      <div id="code">
+        <img src="code.png" alt="code">
+      </div>
+    </div> 
+   
+  <code>
+
+  <ul class="videos hide">
+    <li data-time="5:43">
+      Video 1
+    </li>
+    <li data-time="2:33">
+      Video 2
+    </li>
+    <li data-time="3:45">
+      Video 3
+    </li>
+    <li data-time="0:47">
+      Video 4
+    </li>
+    <li data-time="5:21">
+      Video 5
+    </li>
+    <li data-time="6:56">
+      Video 6
+    </li>
+    <li data-time="3:46">
+      Video 7
+    </li>
+    <li data-time="5:25">
+      Video 8
+    </li>
+    <li data-time="3:14">
+      Video 9
+    </li>
+    <li data-time="3:31">
+      Video 10
+    </li>
+    <li data-time="5:59">
+      Video 11
+    </li>
+    <li data-time="3:07">
+      Video 12
+    </li>
+    <li data-time="11:29">
+      Video 13
+    </li>
+    <li data-time="8:57">
+      Video 14
+    </li>
+    <li data-time="5:49">
+      Video 15
+    </li>
+    <li data-time="5:52">
+      Video 16
+    </li>
+    <li data-time="5:50">
+      Video 17
+    </li>
+    <li data-time="9:13">
+      Video 18
+    </li>
+    <li data-time="11:51">
+      Video 19
+    </li>
+    <li data-time="7:58">
+      Video 20
+    </li>
+    <li data-time="4:40">
+      Video 21
+    </li>
+    <li data-time="4:45">
+      Video 22
+    </li>
+    <li data-time="6:46">
+      Video 23
+    </li>
+    <li data-time="7:24">
+      Video 24
+    </li>
+    <li data-time="7:12">
+      Video 25
+    </li>
+    <li data-time="5:23">
+      Video 26
+    </li>
+    <li data-time="3:34">
+      Video 27
+    </li>
+    <li data-time="8:22">
+      Video 28
+    </li>
+    <li data-time="5:17">
+      Video 29
+    </li>
+    <li data-time="3:10">
+      Video 30
+    </li>
+    <li data-time="4:43">
+      Video 31
+    </li>
+    <li data-time="19:43">
+      Video 32
+    </li>
+    <li data-time="0:47">
+      Video 33
+    </li>
+    <li data-time="0:47">
+      Video 34
+    </li>
+    <li data-time="3:14">
+      Video 35
+    </li>
+    <li data-time="3:59">
+      Video 36
+    </li>
+    <li data-time="2:43">
+      Video 37
+    </li>
+    <li data-time="4:17">
+      Video 38
+    </li>
+    <li data-time="6:56">
+      Video 39
+    </li>
+    <li data-time="3:05">
+      Video 40
+    </li>
+    <li data-time="2:06">
+      Video 41
+    </li>
+    <li data-time="1:59">
+      Video 42
+    </li>
+    <li data-time="1:49">
+      Video 43
+    </li>
+    <li data-time="3:36">
+      Video 44
+    </li>
+    <li data-time="7:10">
+      Video 45
+    </li>
+    <li data-time="3:44">
+      Video 46
+    </li>
+    <li data-time="3:44">
+      Video 47
+    </li>
+    <li data-time="4:36">
+      Video 48
+    </li>
+    <li data-time="3:16">
+      Video 49
+    </li>
+    <li data-time="1:10">
+      Video 50
+    </li>
+    <li data-time="6:10">
+      Video 51
+    </li>
+    <li data-time="2:14">
+      Video 52
+    </li>
+    <li data-time="3:44">
+      Video 53
+    </li>
+    <li data-time="5:05">
+      Video 54
+    </li>
+    <li data-time="6:03">
+      Video 55
+    </li>
+    <li data-time="12:39">
+      Video 56
+    </li>
+    <li data-time="1:56">
+      Video 57
+    </li>
+    <li data-time="4:04">
+      Video 58
+    </li>
+  </ul>
+
+  
+</code>
+<a href="https://schoolofcode.github.io/w9_js30-nass84/" class="myButton">Back to projects</a>
+
+
+</body>
+</html>
+
+<style>
+
+  .hide{
+    display: none;
+  }
+
+  #picture-section{
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+
+  }
+
+  #code{
+    margin: 10px;
+ 
+  }
+
+  #time{
+    margin: 10px;
+  
+  }
+
+  html {
+              font-family: "helvetica neue";
+     
+      }
+      h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        text-decoration: underline #ecc536f1;
+      }
+      .myButton {
+  
+  
+  background:linear-gradient(to bottom,#fada96 5%, #ffc600 100%);
+  display:inline-block;
+  cursor:pointer;
+  color:black;
+  font-family:Verdana;
+  font-size:24px;
+  font-weight:bold;
+  font-style:italic;
+  padding:19px 24px;
+  text-decoration:none;
+  text-shadow:3px 3px 44px #ecc536f1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+  }
+  code {
+    background-color:  #ffc600;
+    opacity: 80%;
+    font-size: 1rem;
+  }
+
+
+</style>
+
+<script>
+
+    // Get all the data attitbutes that are labelled data-time
+   // Create an array from the node list 
+  const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+   // Make a seconds variable 
+  const seconds = timeNodes
+    // change each one to just the time
+    .map(node => node.dataset.time)
+    // change each onto minutes and seconds 
+    .map(timeCode => {
+    // split after the : for seconds and turn to number
+      const [mins, secs] = timeCode.split(':').map(parseFloat);
+    // turn minutes into seconds
+      return (mins * 60) + secs;
+    })
+    // add up the total
+    .reduce((total, vidSeconds) => total + vidSeconds);
+    // math.floor get hours by find the nearest lowest or equal whole number 
+    let secondsLeft = seconds;
+    const hours = Math.floor(secondsLeft / 3600);
+    // % mod finds the remainder
+    secondsLeft = secondsLeft % 3600;
+    const mins = Math.floor(secondsLeft / 60);
+    secondsLeft = secondsLeft % 60;
+    // print the amount of time
+    console.log(hours, mins, secondsLeft);
+
+</script>
+</body>
+</html>
