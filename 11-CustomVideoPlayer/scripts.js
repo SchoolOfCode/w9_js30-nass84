@@ -11,6 +11,7 @@ const fullScreen = player.querySelector(".full");
 const closeScreen = player.querySelector(".close");
  
 // Build Functions
+
  
 function openFullscreen() {
   if (player.requestFullscreen) {
